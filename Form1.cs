@@ -9,7 +9,8 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = "Я РУССКИЙ";
+            label1.Text = "Я пидарас";
+            
         }
     }
 }
