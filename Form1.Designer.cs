@@ -53,6 +53,7 @@
             button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Name = "button2";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
