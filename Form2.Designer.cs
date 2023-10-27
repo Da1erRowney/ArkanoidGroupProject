@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.BackgroundImage = Properties.Resources._07aba1377ac5c14;
-            button1.Location = new Point(55, 54);
-            button1.Name = "button1";
-            button1.Size = new Size(171, 29);
-            button1.TabIndex = 0;
-            button1.Text = "<----------";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.d0e0e259bf0aba4da742bedff1d4b8a5;
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(0, -1);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1000, 600);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.WaitOnLoad = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(67, 54);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // Form2
             // 
@@ -70,8 +69,7 @@
         }
 
         #endregion
-
-        private Button button1;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }
