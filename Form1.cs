@@ -7,16 +7,18 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = "Я пидарас";
-            int a = 0;
+            Form2 form2 = new Form2();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = "Я пидарас, а не русский";
+            //fdf
+            Form3 form3 = new Form3();
+            this.Hide();
+            form3.Show();
         }
     }
 }
