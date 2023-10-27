@@ -5,18 +5,23 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label1.Text = "Я пидарас";
-            int a = 0;
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = "Я пидарас, а не русский";
+            Form2 form2 = new Form2();
+
+            // Отображаем новую форму
+            form2.Show();
+
+            // Закрываем текущую форму (Form1), если необходимо
+            //this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
