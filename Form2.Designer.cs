@@ -37,6 +37,7 @@
             // 
             pictureBox1.Image = Properties.Resources.d0e0e259bf0aba4da742bedff1d4b8a5;
             pictureBox1.Location = new Point(0, -1);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1000, 600);
             pictureBox1.TabIndex = 1;
@@ -45,9 +46,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(67, 54);
+            button1.Location = new Point(59, 40);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(82, 22);
             button1.TabIndex = 2;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -55,12 +57,13 @@
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 600);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
