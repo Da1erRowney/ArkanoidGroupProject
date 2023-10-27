@@ -33,44 +33,64 @@
             button2 = new Button();
             button3 = new Button();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             resources.ApplyResources(button1, "button1");
+            button1.BackColor = Color.Black;
+            button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             resources.ApplyResources(button2, "button2");
+            button2.BackColor = SystemColors.ActiveCaptionText;
+            button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Name = "button2";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
             resources.ApplyResources(button3, "button3");
+            button3.BackColor = Color.Black;
+            button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Name = "button3";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // label1
             // 
             resources.ApplyResources(label1, "label1");
-            label1.BackColor = Color.Transparent;
+            label1.BackColor = Color.Black;
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Name = "label1";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.BackgroundImage = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
+            pictureBox1.Image = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
-            BackgroundImage = Properties.Resources.background;
+            BackgroundImage = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -81,5 +101,6 @@
         private Button button2;
         private Button button3;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }

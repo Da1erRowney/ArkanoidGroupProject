@@ -121,4 +121,13 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="d0e0e259bf0aba4da742bedff1d4b8a5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d0e0e259bf0aba4da742bedff1d4b8a5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="93f04b4b1103cc4e6410bb4f831acb6c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\93f04b4b1103cc4e6410bb4f831acb6c.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="07aba1377ac5c14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\07aba1377ac5c14.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
