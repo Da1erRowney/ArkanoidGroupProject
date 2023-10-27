@@ -13,7 +13,9 @@ namespace WinFormsApp1
             Form2 form2 = new Form2();
 
             // Отображаем новую форму
+            this.Hide();
             form2.Show();
+
             //ававацаыва
             // Закрываем текущую форму (Form1), если необходимо
             //this.Close();
@@ -27,6 +29,13 @@ namespace WinFormsApp1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            this.Hide();
+            form3.Show();
         }
     }
 }
