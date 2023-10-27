@@ -63,9 +63,39 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _07aba1377ac5c14 {
+            get {
+                object obj = ResourceManager.GetObject("07aba1377ac5c14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _93f04b4b1103cc4e6410bb4f831acb6c {
+            get {
+                object obj = ResourceManager.GetObject("93f04b4b1103cc4e6410bb4f831acb6c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap d0e0e259bf0aba4da742bedff1d4b8a5 {
+            get {
+                object obj = ResourceManager.GetObject("d0e0e259bf0aba4da742bedff1d4b8a5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
