@@ -32,8 +32,8 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             // 
             resources.ApplyResources(button1, "button1");
             button1.BackColor = Color.Black;
-            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.ForeColor = Color.Khaki;
             button1.Name = "button1";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -49,8 +49,8 @@
             // button2
             // 
             resources.ApplyResources(button2, "button2");
-            button2.BackColor = SystemColors.ActiveCaptionText;
-            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.BackColor = Color.Black;
+            button2.ForeColor = Color.Khaki;
             button2.Name = "button2";
             button2.UseVisualStyleBackColor = false;
             // 
@@ -58,17 +58,11 @@
             // 
             resources.ApplyResources(button3, "button3");
             button3.BackColor = Color.Black;
-            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.ForeColor = Color.Khaki;
             button3.Name = "button3";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.BackColor = Color.Black;
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Name = "label1";
             // 
             // pictureBox1
             // 
@@ -79,10 +73,16 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.BackColor = Color.Black;
+            label1.ForeColor = Color.Khaki;
+            label1.Name = "label1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
-            BackgroundImage = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -100,7 +100,7 @@
         private Button button1;
         private Button button2;
         private Button button3;
-        private Label label1;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }
