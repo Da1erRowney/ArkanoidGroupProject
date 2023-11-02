@@ -36,7 +36,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.Control;
-            pictureBox1.Image = Properties.Resources._998e055aba57c24138220937cc5166ab;
+
             pictureBox1.Location = new Point(-6, -3);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";

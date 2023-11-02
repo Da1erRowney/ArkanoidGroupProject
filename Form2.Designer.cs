@@ -30,6 +30,7 @@
         {
             pictureBox1 = new PictureBox();
             button1 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -38,7 +39,7 @@
             pictureBox1.Image = Properties.Resources.d0e0e259bf0aba4da742bedff1d4b8a5;
             pictureBox1.Location = new Point(0, -1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1131, 774);
+            pictureBox1.Size = new Size(1139, 803);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -57,11 +58,22 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(960, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 35);
+            label1.TabIndex = 3;
+            label1.Text = "label1";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1143, 800);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -70,10 +82,12 @@
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private PictureBox pictureBox1;
         private Button button1;
+        private Label label1;
     }
 }
