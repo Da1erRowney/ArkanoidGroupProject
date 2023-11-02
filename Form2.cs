@@ -19,6 +19,7 @@ namespace WinFormsApp1
         private PictureBox ball; // Шарик
         private PictureBox[] blocks; // Блоки
         private Timer gameTimer;
+        private int countRecord = 0;
         private int ballSpeedX = 4; // Скорость шарика по горизонтали
         private int ballSpeedY = 4; // Скорость шарика по вертикали
         public Form2()
@@ -105,6 +106,8 @@ namespace WinFormsApp1
                 {
                     blocks[i].Visible = false;
                     ballSpeedY = -ballSpeedY;
+                    countRecord += 200;
+                    label1.Text = "Ваши Счёт: "+ countRecord;
                     // Дополнительные действия при попадании шариком в блок
                 }
             }
@@ -124,6 +127,7 @@ namespace WinFormsApp1
             {
                 gameTimer.Stop();
                 MessageBox.Show("Игра окончена!");
+                countRecord = 0;
                 InitializeGame();
             }
         }
