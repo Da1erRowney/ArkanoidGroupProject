@@ -1,19 +1,8 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Recordes;
+﻿using Recordes;
 using SQLite;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using Timer = System.Windows.Forms.Timer;
-
 
 namespace WinFormsApp1
 {
@@ -23,46 +12,45 @@ namespace WinFormsApp1
         public string databasePath = Form1.databasePath;
         private DatabaseServiceRecords _databaseService;
         private Record _selectedData;
-
         private PictureBox paddle; // Платформа
         private PictureBox ball; // Шарик
         private PictureBox[] blocks; // Блоки
-        private Timer gameTimer;
+        private System.Windows.Forms.Timer gameTimer;
         private int countRecord = 0;
         private int ballSpeedX = 4; // Скорость шарика по горизонтали
         private int ballSpeedY = 4; // Скорость шарика по вертикали
+
         public Form2()
         {
-
-            _databaseService = new DatabaseServiceRecords(databasePath);
-            _selectedData = _databaseService.GetNickName(nickUser);
             InitializeComponent();
             InitializeGame();
-           
+            _databaseService = new DatabaseServiceRecords(databasePath);
+            _selectedData = _databaseService.GetNickName(nickUser);
         }
+
         private void InitializeGame()
         {
             // Создаем платформу
-
-            paddle = new PictureBox();
-            paddle.Image = Image.FromFile("../../../Resources/platform.png");
-            //paddle.Image = Properties.Resources.platform; // Замените "platform.png" на имя вашего изображения платформы в папке "Resources"
-            paddle.SizeMode = PictureBoxSizeMode.StretchImage;
-            paddle.Size = new Size(100, 40);
-            paddle.Location = new Point((ClientSize.Width - paddle.Width) / 2, ClientSize.Height - paddle.Height - 50);
-            // Устанавливаем прозрачный фон
-            paddle.BackColor = Color.Transparent;
+            paddle = new PictureBox
+            {
+                Image = Properties.Resources.platform, // Замените на ваше изображение платформы
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(100, 40),
+                Location = new Point((ClientSize.Width - 100) / 2, ClientSize.Height - 90),
+                BackColor = Color.Transparent
+            };
             Controls.Add(paddle);
             paddle.BringToFront();
 
             // Создаем шарик
-
-            ball = new PictureBox();
-            ball.Image = Image.FromFile("../../../Resources/ball.png"); // Замените "ball.png" на путь к вашей картинке шарика
-            ball.SizeMode = PictureBoxSizeMode.StretchImage;
-            ball.Size = new Size(30, 30);
-            ball.Location = new Point((ClientSize.Width - ball.Width) / 2, paddle.Top - ball.Height);
-            ball.BackColor = Color.Transparent; // Устанавливаем прозрачный фон
+            ball = new PictureBox
+            {
+                Image = Properties.Resources.ball, // Замените на ваше изображение шарика
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(30, 30),
+                Location = new Point((ClientSize.Width - 30) / 2, paddle.Top - 30),
+                BackColor = Color.Transparent
+            };
             Controls.Add(ball);
             ball.BringToFront();
 
@@ -74,32 +62,30 @@ namespace WinFormsApp1
             int blockWidth = 70;
             int blockHeight = 30;
 
-
-
             for (int row = 0; row < 3; row++)
             {
                 for (int column = 0; column < 10; column++)
                 {
-                    blocks[blockIndex] = new PictureBox();
-                    blocks[blockIndex].Image = Image.FromFile("../../../Resources/block2.png"); // Замените "block.png" на путь к вашей картинке блока
-                    blocks[blockIndex].SizeMode = PictureBoxSizeMode.StretchImage;
-                    blocks[blockIndex].Size = new Size(blockWidth, blockHeight);
-                    blocks[blockIndex].Location = new Point(initialLeft + column * (blockWidth + 10),
-                        initialTop + row * (blockHeight + 10));
-                    blocks[blockIndex].BackColor = Color.Transparent; // Устанавливаем прозрачный фон
+                    blocks[blockIndex] = new PictureBox
+                    {
+                        Image = Properties.Resources.block2, // Замените на ваше изображение блока
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Size = new Size(blockWidth, blockHeight),
+                        Location = new Point(initialLeft + column * (blockWidth + 10), initialTop + row * (blockHeight + 10)),
+                        BackColor = Color.Transparent
+                    };
                     Controls.Add(blocks[blockIndex]);
                     blocks[blockIndex].BringToFront();
                     blockIndex++;
                 }
             }
 
-
             // Создаем таймер для обновления игровых состояний
-            gameTimer = new Timer();
-            gameTimer.Interval = 1;
+            gameTimer = new System.Windows.Forms.Timer { Interval = 1 };
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
         }
+
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             // Двигаем шарик
@@ -113,14 +99,14 @@ namespace WinFormsApp1
             }
 
             // Проверяем столкновение шарика с блоками
-            for (int i = 0; i < blocks.Length; i++)
+            foreach (var block in blocks)
             {
-                if (ball.Bounds.IntersectsWith(blocks[i].Bounds) && blocks[i].Visible)
+                if (block.Visible && ball.Bounds.IntersectsWith(block.Bounds))
                 {
-                    blocks[i].Visible = false;
+                    block.Visible = false;
                     ballSpeedY = -ballSpeedY;
                     countRecord += 200;
-                    label1.Text = "Ваши Счёт: " + countRecord;
+                    label1.Text = "Ваш Счёт: " + countRecord;
                     // Дополнительные действия при попадании шариком в блок
                 }
             }
@@ -136,7 +122,7 @@ namespace WinFormsApp1
             }
 
             // Проверяем, завершилась ли игра
-            if (ball.Top >= ClientSize.Height)
+            if (ball.Top >= ClientSize.Height) ////////////СДЕЛАТЬ НОРМАЛЬНОЕ ВОЗВРАЩЕНИЕ НАЗАД С ВЫБОРОМ ПРОДОЛЖИТЬ ИЛИ ВЫЙТИ!!!!
             {
                 gameTimer.Stop();
                 _selectedData.RecordUser = countRecord;
@@ -144,49 +130,35 @@ namespace WinFormsApp1
                 MessageBox.Show("Игра окончена!");
 
                 countRecord = 0;
-
-                InitializeGame();
+                //////////////////////// ВСТАВИЛ ЭТО ПОКА ДЛЯ ВОЗВРАТА НА ГЛАВ МЕНЮ ПОСЛЕ ПОРАЖЕНИЯ
+                Form1 form1 = new Form1();
+                this.Close();
+                form1.Show();
+                form1.statusAccount = true;
+                form1.textBox1.Text = nickUser;
+                ////////////////////////////
+                //InitializeGame(); ПОКА ЗАКОММЕНТИРОВАЛ ЭТО
             }
-            
-            }
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            // Перемещение платформы за курсором мыши
-            if (e.X >= paddle.Width / 2 && e.X <= ClientSize.Width - paddle.Width / 2)
-            {
-                paddle.Left = e.X - paddle.Width / 2;
-            }
-
-            base.OnMouseMove(e);
         }
 
-
-
-        private void button1_Click_1(object sender, EventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
+            base.OnMouseMove(e);
+            paddle.Left = e.X - paddle.Width / 2;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
             gameTimer.Enabled = false;
             _selectedData.RecordUser = countRecord;
             _databaseService.UpdateRecord(_selectedData);
-            MessageBox.Show("Игра окончена!"+ nickUser);
+            MessageBox.Show("Игра окончена!");
             countRecord = 0;
             Form1 form1 = new Form1();
             this.Close();
             form1.Show();
             form1.statusAccount = true;
             form1.textBox1.Text = nickUser;
-
-
-        }
-
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.X >= paddle.Width / 2 && e.X <= ClientSize.Width - paddle.Width / 2)
-            {
-                paddle.Left = e.X - paddle.Width / 2;
-            }
-
-            base.OnMouseMove(e);
         }
     }
 }
