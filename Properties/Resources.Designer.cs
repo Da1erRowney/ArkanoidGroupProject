@@ -73,6 +73,16 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15_Twerking_Gifs_That_Didn_t_Quite_Twerk_It {
+            get {
+                object obj = ResourceManager.GetObject("15 Twerking Gifs That Didn\'t Quite Twerk It", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5e71e40457b436e7b6364e1004f101bf {
             get {
                 object obj = ResourceManager.GetObject("5e71e40457b436e7b6364e1004f101bf", resourceCulture);

@@ -5,7 +5,6 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private async void button1_Click(object sender, EventArgs e)

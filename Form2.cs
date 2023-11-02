@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +25,10 @@ namespace WinFormsApp1
         private int ballSpeedY = 4; // Скорость шарика по вертикали
         public Form2()
         {
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
+            Graphics graphics = CreateGraphics();
+            graphics.SmoothingMode = SmoothingMode.HighQuality;
+
             InitializeComponent();
             InitializeGame();
         }
@@ -78,13 +84,14 @@ namespace WinFormsApp1
                     blockIndex++;
                 }
             }
-
+            pictureBox1.SendToBack();
 
             // Создаем таймер для обновления игровых состояний
             gameTimer = new Timer();
-            gameTimer.Interval = 1;
+            gameTimer.Interval = 16;
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
+            gameTimer.Enabled = true;
         }
         private void GameTimer_Tick(object sender, EventArgs e)
         {
@@ -124,9 +131,22 @@ namespace WinFormsApp1
             {
                 gameTimer.Stop();
                 MessageBox.Show("Игра окончена!");
+                ClearField();
                 InitializeGame();
             }
+            
         }
+
+        private void ClearField()
+        {
+            Controls.Remove(paddle);
+            Controls.Remove(ball);
+            foreach (PictureBox block in blocks)
+            {
+                Controls.Remove(block);
+            }
+        }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             // Перемещение платформы за курсором мыши
@@ -156,7 +176,6 @@ namespace WinFormsApp1
             {
                 paddle.Left = e.X - paddle.Width / 2;
             }
-
             base.OnMouseMove(e);
         }
     }
