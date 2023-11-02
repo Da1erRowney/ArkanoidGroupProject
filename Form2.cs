@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Recordes;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Timer = System.Windows.Forms.Timer;
 
 
@@ -15,6 +19,11 @@ namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
+        public string nickUser = Form1.Nick;
+        public string databasePath = Form1.databasePath;
+        private DatabaseServiceRecords _databaseService;
+        private Record _selectedData;
+
         private PictureBox paddle; // Платформа
         private PictureBox ball; // Шарик
         private PictureBox[] blocks; // Блоки
@@ -24,8 +33,12 @@ namespace WinFormsApp1
         private int ballSpeedY = 4; // Скорость шарика по вертикали
         public Form2()
         {
+
+            _databaseService = new DatabaseServiceRecords(databasePath);
+            _selectedData = _databaseService.GetNickName(nickUser);
             InitializeComponent();
             InitializeGame();
+           
         }
         private void InitializeGame()
         {
@@ -107,7 +120,7 @@ namespace WinFormsApp1
                     blocks[i].Visible = false;
                     ballSpeedY = -ballSpeedY;
                     countRecord += 200;
-                    label1.Text = "Ваши Счёт: "+ countRecord;
+                    label1.Text = "Ваши Счёт: " + countRecord;
                     // Дополнительные действия при попадании шариком в блок
                 }
             }
@@ -126,11 +139,16 @@ namespace WinFormsApp1
             if (ball.Top >= ClientSize.Height)
             {
                 gameTimer.Stop();
+                _selectedData.RecordUser = countRecord;
+                _databaseService.UpdateRecord(_selectedData);
                 MessageBox.Show("Игра окончена!");
+
                 countRecord = 0;
+
                 InitializeGame();
             }
-        }
+            
+            }
         protected override void OnMouseMove(MouseEventArgs e)
         {
             // Перемещение платформы за курсором мыши
@@ -148,9 +166,16 @@ namespace WinFormsApp1
         {
 
             gameTimer.Enabled = false;
+            _selectedData.RecordUser = countRecord;
+            _databaseService.UpdateRecord(_selectedData);
+            MessageBox.Show("Игра окончена!"+ nickUser);
+            countRecord = 0;
             Form1 form1 = new Form1();
             this.Close();
             form1.Show();
+            form1.statusAccount = true;
+            form1.textBox1.Text = nickUser;
+
 
         }
 

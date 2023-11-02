@@ -64,9 +64,9 @@
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(960, 21);
             label1.Name = "label1";
-            label1.Size = new Size(81, 35);
+            label1.Size = new Size(67, 35);
             label1.TabIndex = 3;
-            label1.Text = "label1";
+            label1.Text = "Счет";
             // 
             // Form2
             // 
