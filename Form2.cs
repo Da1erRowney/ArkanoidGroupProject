@@ -56,9 +56,12 @@ namespace WinFormsApp1
             blocks = new PictureBox[30];
             int blockIndex = 0;
             int initialTop = 50;
-            int initialLeft = 30;
+            int initialLeft = 175;
             int blockWidth = 70;
             int blockHeight = 30;
+
+
+
             for (int row = 0; row < 3; row++)
             {
                 for (int column = 0; column < 10; column++)
@@ -121,7 +124,7 @@ namespace WinFormsApp1
             {
                 gameTimer.Stop();
                 MessageBox.Show("Игра окончена!");
-                Close();
+                InitializeGame();
             }
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -139,6 +142,8 @@ namespace WinFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+            gameTimer.Enabled = false;
             Form1 form1 = new Form1();
             this.Close();
             form1.Show();
