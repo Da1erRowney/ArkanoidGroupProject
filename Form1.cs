@@ -60,7 +60,6 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e) //Setting
         {
-            //Ћаба не сдана, нам пизда
             Form3 form3 = new Form3();
             this.Hide();
             form3.Show();
