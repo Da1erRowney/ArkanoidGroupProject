@@ -34,6 +34,9 @@
             button3 = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
+            textBox1 = new TextBox();
+            button4 = new Button();
+            checkedListBox1 = new CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +74,6 @@
             pictureBox1.Image = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -80,9 +82,30 @@
             label1.ForeColor = Color.Khaki;
             label1.Name = "label1";
             // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            // 
+            // button4
+            // 
+            resources.ApplyResources(button4, "button4");
+            button4.Name = "button4";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // checkedListBox1
+            // 
+            resources.ApplyResources(checkedListBox1, "checkedListBox1");
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Name = "checkedListBox1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
+            Controls.Add(checkedListBox1);
+            Controls.Add(button4);
+            Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -102,5 +125,8 @@
         private Button button3;
         private PictureBox pictureBox1;
         private Label label1;
+        private Button button4;
+        private CheckedListBox checkedListBox1;
+        public TextBox textBox1;
     }
 }
