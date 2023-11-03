@@ -36,10 +36,11 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.Control;
-            pictureBox1.Image = Properties.Resources._998e055aba57c24138220937cc5166ab;
-            pictureBox1.Location = new Point(-5, -2);
+
+            pictureBox1.Location = new Point(-6, -3);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1006, 601);
+            pictureBox1.Size = new Size(1150, 801);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -47,22 +48,26 @@
             // 
             // button1
             // 
-            button1.Location = new Point(422, 547);
+            button1.BackColor = Color.Black;
+            button1.ForeColor = Color.Khaki;
+            button1.Location = new Point(12, 13);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(126, 25);
+            button1.Size = new Size(94, 29);
             button1.TabIndex = 1;
-            button1.Text = "Вернуться назад";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "<------";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 600);
+            ClientSize = new Size(1143, 800);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";

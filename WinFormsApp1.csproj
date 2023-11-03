@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Siticone.Desktop.UI" Version="2.1.1" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

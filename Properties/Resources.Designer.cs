@@ -123,9 +123,79 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ball {
+            get {
+                object obj = ResourceManager.GetObject("ball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap block2 {
+            get {
+                object obj = ResourceManager.GetObject("block2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap d0e0e259bf0aba4da742bedff1d4b8a5 {
             get {
                 object obj = ResourceManager.GetObject("d0e0e259bf0aba4da742bedff1d4b8a5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dcf72356900577_59c1008078207 {
+            get {
+                object obj = ResourceManager.GetObject("dcf72356900577.59c1008078207", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dcf723569005771 {
+            get {
+                object obj = ResourceManager.GetObject("dcf723569005771", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dcf723569005772 {
+            get {
+                object obj = ResourceManager.GetObject("dcf723569005772", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dcf723569005773 {
+            get {
+                object obj = ResourceManager.GetObject("dcf723569005773", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap platform {
+            get {
+                object obj = ResourceManager.GetObject("platform", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
