@@ -2,12 +2,14 @@
 using SQLite;
 using System;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
+        public int level = 0;
         public string nickUser = Form1.Nick;
         public string databasePath = Form1.databasePath;
         private DatabaseServiceRecords _databaseService;
@@ -23,6 +25,7 @@ namespace WinFormsApp1
         public Form2()
         {
             InitializeComponent();
+            level = 1;
             InitializeGame();
             _databaseService = new DatabaseServiceRecords(databasePath);
             _selectedData = _databaseService.GetNickName(nickUser);
@@ -30,6 +33,8 @@ namespace WinFormsApp1
 
         private void InitializeGame()
         {
+            if (level == 1)
+            {
             // Создаем платформу
             paddle = new PictureBox
             {
@@ -54,36 +59,72 @@ namespace WinFormsApp1
             Controls.Add(ball);
             ball.BringToFront();
 
-            // Создаем блоки
-            blocks = new PictureBox[30];
-            int blockIndex = 0;
-            int initialTop = 50;
-            int initialLeft = 175;
-            int blockWidth = 70;
-            int blockHeight = 30;
+                // Создаем блоки
+                blocks = new PictureBox[30];
+                int blockIndex = 0;
+                int initialTop = 50;
+                int initialLeft = 175;
+                int blockWidth = 70;
+                int blockHeight = 30;
 
-            for (int row = 0; row < 3; row++)
-            {
-                for (int column = 0; column < 10; column++)
+                for (int row = 0; row < 3; row++)
                 {
-                    blocks[blockIndex] = new PictureBox
+                    for (int column = 0; column < 10; column++)
                     {
-                        Image = Properties.Resources.block2, // Замените на ваше изображение блока
-                        SizeMode = PictureBoxSizeMode.StretchImage,
-                        Size = new Size(blockWidth, blockHeight),
-                        Location = new Point(initialLeft + column * (blockWidth + 10), initialTop + row * (blockHeight + 10)),
-                        BackColor = Color.Transparent
-                    };
-                    Controls.Add(blocks[blockIndex]);
-                    blocks[blockIndex].BringToFront();
-                    blockIndex++;
+                        blocks[blockIndex] = new PictureBox
+                        {
+                            Image = Properties.Resources.block2, // Замените на ваше изображение блока
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Size = new Size(blockWidth, blockHeight),
+                            Location = new Point(initialLeft + column * (blockWidth + 10), initialTop + row * (blockHeight + 10)),
+                            BackColor = Color.Transparent
+                        };
+                        Controls.Add(blocks[blockIndex]);
+                        blocks[blockIndex].BringToFront();
+                        blockIndex++;
+                    }
                 }
+
+                // Создаем таймер для обновления игровых состояний
+                gameTimer = new System.Windows.Forms.Timer { Interval = 1 };
+                gameTimer.Tick += GameTimer_Tick;
+                gameTimer.Start();
+            }
+            //Создаем блоки
+
+            if (level == 2)
+            {
+                blocks = new PictureBox[30];
+                int blockIndex = 0;
+                int initialTop = 50;
+                int initialLeft = 175;
+                int blockWidth = 70;
+                int blockHeight = 30;
+
+                for (int row = 0; row < 3; row++)
+                {
+                    for (int column = 0; column < 10; column++)
+                    {
+                        blocks[blockIndex] = new PictureBox
+                        {
+                            Image = Properties.Resources.block2, // Замените на ваше изображение блока
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Size = new Size(blockWidth, blockHeight),
+                            Location = new Point(initialLeft + column * (blockWidth + 10), initialTop + row * (blockHeight + 10)),
+                            BackColor = Color.Transparent
+                        };
+                        Controls.Add(blocks[blockIndex]);
+                        blocks[blockIndex].BringToFront();
+                        blockIndex++;
+                    }
+                }
+
+                // Создаем таймер для обновления игровых состояний
+                gameTimer = new System.Windows.Forms.Timer { Interval = 1 };
+                gameTimer.Tick += GameTimer_Tick;
+                gameTimer.Start();
             }
 
-            // Создаем таймер для обновления игровых состояний
-            gameTimer = new System.Windows.Forms.Timer { Interval = 1 };
-            gameTimer.Tick += GameTimer_Tick;
-            gameTimer.Start();
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
@@ -103,10 +144,21 @@ namespace WinFormsApp1
             {
                 if (block.Visible && ball.Bounds.IntersectsWith(block.Bounds))
                 {
+                    
                     block.Visible = false;
                     ballSpeedY = -ballSpeedY;
                     countRecord += 200;
                     label1.Text = "Ваш Счёт: " + countRecord;
+                    if(countRecord == 6000 && level == 1)
+                    {
+                        level = 2;
+                        ballSpeedX += 2;
+                        ballSpeedY += 2;
+                        //ball.Left += ballSpeedX;
+                        //ball.Top += ballSpeedY;
+
+                        InitializeGame();
+                    }
                     // Дополнительные действия при попадании шариком в блок
                 }
             }
@@ -128,6 +180,7 @@ namespace WinFormsApp1
                 _selectedData.RecordUser = countRecord;
                 _databaseService.UpdateRecord(_selectedData);
                 MessageBox.Show("Игра окончена!");
+                ClearFiled();
 
                 countRecord = 0;
                 //////////////////////// ВСТАВИЛ ЭТО ПОКА ДЛЯ ВОЗВРАТА НА ГЛАВ МЕНЮ ПОСЛЕ ПОРАЖЕНИЯ
@@ -140,7 +193,15 @@ namespace WinFormsApp1
                 //InitializeGame(); ПОКА ЗАКОММЕНТИРОВАЛ ЭТО
             }
         }
-
+        private void ClearFiled()
+        {
+            Controls.Remove(paddle);
+            Controls.Remove(ball);
+            foreach(PictureBox block in blocks)
+            {
+                Controls.Remove(block);
+            }
+        }
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
