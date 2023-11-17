@@ -34,11 +34,14 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.ForeColor = Color.Transparent;
             button1.Location = new Point(12, 12);
             button1.Name = "button1";
             button1.Size = new Size(75, 38);
             button1.TabIndex = 4;
-            button1.Text = "Домой";
+            button1.Text = "<-----";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1

@@ -35,29 +35,29 @@ namespace WinFormsApp1
         {
             if (level == 1)
             {
-            // Создаем платформу
-            paddle = new PictureBox
-            {
-                Image = Properties.Resources.platform, // Замените на ваше изображение платформы
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(100, 40),
-                Location = new Point((ClientSize.Width - 100) / 2, ClientSize.Height - 90),
-                BackColor = Color.Transparent
-            };
-            Controls.Add(paddle);
-            paddle.BringToFront();
+                // Создаем платформу
+                paddle = new PictureBox
+                {
+                    Image = Properties.Resources.platform, // Замените на ваше изображение платформы
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(100, 40),
+                    Location = new Point((ClientSize.Width - 100) / 2, ClientSize.Height - 90),
+                    BackColor = Color.Transparent
+                };
+                Controls.Add(paddle);
+                paddle.BringToFront();
 
-            // Создаем шарик
-            ball = new PictureBox
-            {
-                Image = Properties.Resources.ball, // Замените на ваше изображение шарика
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(30, 30),
-                Location = new Point((ClientSize.Width - 30) / 2, paddle.Top - 30),
-                BackColor = Color.Transparent
-            };
-            Controls.Add(ball);
-            ball.BringToFront();
+                // Создаем шарик
+                ball = new PictureBox
+                {
+                    Image = Properties.Resources.ball, // Замените на ваше изображение шарика
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(30, 30),
+                    Location = new Point((ClientSize.Width - 30) / 2, paddle.Top - 30),
+                    BackColor = Color.Transparent
+                };
+                Controls.Add(ball);
+                ball.BringToFront();
 
                 // Создаем блоки
                 blocks = new PictureBox[30];
@@ -144,12 +144,12 @@ namespace WinFormsApp1
             {
                 if (block.Visible && ball.Bounds.IntersectsWith(block.Bounds))
                 {
-                    
+
                     block.Visible = false;
                     ballSpeedY = -ballSpeedY;
                     countRecord += 200;
                     label1.Text = "Ваш Счёт: " + countRecord;
-                    if(countRecord == 6000 && level == 1)
+                    if (countRecord == 6000 && level == 1)
                     {
                         level = 2;
                         ballSpeedX += 2;
@@ -197,7 +197,7 @@ namespace WinFormsApp1
         {
             Controls.Remove(paddle);
             Controls.Remove(ball);
-            foreach(PictureBox block in blocks)
+            foreach (PictureBox block in blocks)
             {
                 Controls.Remove(block);
             }
