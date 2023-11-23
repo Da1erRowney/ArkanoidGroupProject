@@ -36,9 +36,10 @@
             // 
             button1.BackColor = SystemColors.ActiveCaptionText;
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(12, 12);
+            button1.Location = new Point(10, 9);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(75, 38);
+            button1.Size = new Size(66, 28);
             button1.TabIndex = 4;
             button1.Text = "<-----";
             button1.UseVisualStyleBackColor = false;
@@ -48,21 +49,22 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(906, 15);
+            label1.Location = new Point(561, 9);
             label1.Name = "label1";
-            label1.Size = new Size(67, 35);
+            label1.Size = new Size(53, 28);
             label1.TabIndex = 3;
             label1.Text = "Счет";
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1143, 800);
+            ClientSize = new Size(1000, 600);
             Controls.Add(label1);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";

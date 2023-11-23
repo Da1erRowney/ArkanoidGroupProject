@@ -2,11 +2,14 @@ using SQLite;
 using Recordes;
 using System.Diagnostics.Eventing.Reader;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Media;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        public static SoundPlayer sound_main = new SoundPlayer(@"C:\Users\konst\source\repos\Da1erRowney\ArkanoidGroupProject\Resources\3.wav");
+        public static bool statusMusic = true;
         public static string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "record.db");
         public static string Nick;
         public bool statusAccount = false;
@@ -22,6 +25,12 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            if (statusMusic == true)
+            {
+                sound_main.PlayLooping();
+                sound_main.Play();
+            }
+
             _databaseService = new DatabaseServiceRecords(databasePath);
             SQLiteConnection connection = CreateDatabase(databasePath);
             checkedListBox1.ItemCheck += checkedListBox1_ItemCheck;
@@ -53,7 +62,7 @@ namespace WinFormsApp1
             {
                 Nick = textBox1.Text;
                 Form2 form2 = new Form2();
-                this.Hide();
+                
                 form2.Show();
             }
             else
@@ -70,7 +79,6 @@ namespace WinFormsApp1
         private void button2_Click(object sender, EventArgs e) //Setting
         {
             Form3 form3 = new Form3();
-            this.Hide();
             form3.Show();
         }
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)

@@ -25,6 +25,7 @@ namespace WinFormsApp1
         public Form2()
         {
             InitializeComponent();
+            
             level = 1;
             InitializeGame();
             _databaseService = new DatabaseServiceRecords(databasePath);
@@ -148,7 +149,7 @@ namespace WinFormsApp1
                     block.Visible = false;
                     ballSpeedY = -ballSpeedY;
                     countRecord += 200;
-                    label1.Text = "Ваш Счёт: " + countRecord;
+                    label1.Text = "Игрок " + Form1.Nick + " || Ваш Счёт: " + countRecord;
                     if (countRecord == 6000 && level == 1)
                     {
                         level = 2;
@@ -186,7 +187,7 @@ namespace WinFormsApp1
                 //////////////////////// ВСТАВИЛ ЭТО ПОКА ДЛЯ ВОЗВРАТА НА ГЛАВ МЕНЮ ПОСЛЕ ПОРАЖЕНИЯ
                 Form1 form1 = new Form1();
                 this.Close();
-                form1.Show();
+                
                 form1.statusAccount = true;
                 form1.textBox1.Text = nickUser;
                 ////////////////////////////
@@ -217,7 +218,7 @@ namespace WinFormsApp1
             countRecord = 0;
             Form1 form1 = new Form1();
             this.Close();
-            form1.Show();
+            
             form1.statusAccount = true;
             form1.textBox1.Text = nickUser;
         }

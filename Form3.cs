@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +26,20 @@ namespace WinFormsApp1
         {
             Form1 form1 = new Form1();
             this.Close();
-            form1.Show();
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Form1.statusMusic == true)
+            {
+                Form1.sound_main.Stop();
+                Form1.statusMusic = false;
+            }
+            else {
+                Form1.sound_main.Stop();
+                Form1.statusMusic = true;
+            }
         }
     }
 }

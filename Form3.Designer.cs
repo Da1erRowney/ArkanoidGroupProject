@@ -30,17 +30,18 @@
         {
             pictureBox1 = new PictureBox();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.Control;
-
-            pictureBox1.Location = new Point(-6, -3);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.BackgroundImage = Properties.Resources._998e055aba57c24138220937cc5166ab;
+            pictureBox1.Image = Properties.Resources._998e055aba57c24138220937cc5166ab;
+            pictureBox1.Location = new Point(-5, -2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1150, 801);
+            pictureBox1.Size = new Size(1005, 601);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -50,24 +51,33 @@
             // 
             button1.BackColor = Color.Black;
             button1.ForeColor = Color.Khaki;
-            button1.Location = new Point(12, 13);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(10, 10);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(82, 22);
             button1.TabIndex = 1;
             button1.Text = "<------";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(371, 170);
+            button2.Name = "button2";
+            button2.Size = new Size(257, 93);
+            button2.TabIndex = 2;
+            button2.Text = "Включить/Выключить музыку";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 800);
+            ClientSize = new Size(1000, 600);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";
@@ -79,5 +89,6 @@
 
         private PictureBox pictureBox1;
         private Button button1;
+        private Button button2;
     }
 }
