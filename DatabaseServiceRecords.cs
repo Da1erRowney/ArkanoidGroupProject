@@ -39,6 +39,7 @@ namespace Recordes
         {
             _connection?.Close();
         }
+
     }
 
     public class Record

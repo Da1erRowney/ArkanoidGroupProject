@@ -24,7 +24,7 @@ namespace WinFormsApp1
             InitializeComponent();
             _databaseService = new DatabaseServiceRecords(databasePath);
             SQLiteConnection connection = CreateDatabase(databasePath);
-
+            checkedListBox1.ItemCheck += checkedListBox1_ItemCheck;
             List<Record> records = _databaseService.GetAllRecord();
             checkedListBox1.Items.Clear();
             string itemText = "Страница Рекордов";
@@ -37,19 +37,28 @@ namespace WinFormsApp1
 
         }
 
-        private void button1_Click(object sender, EventArgs e) // Game
+        private void button1_Click(object sender, EventArgs e)
         {
+            string inputNick = textBox1.Text.Trim();
 
-            if (statusAccount == false)
+            if (string.IsNullOrEmpty(inputNick))
             {
-                MessageBox.Show("Для игры внесите пользователя в систему");
+                MessageBox.Show("Вы не ввели ник");
+                return;
             }
 
-            else if (statusAccount == true)
+            // Проверяем наличие ника в базе данных
+            Record existingRecord = _databaseService.GetNickName(inputNick);
+            if (existingRecord != null)
             {
+                Nick = textBox1.Text;
                 Form2 form2 = new Form2();
                 this.Hide();
                 form2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ник не существует в базе данных");
             }
         }
 
@@ -64,20 +73,40 @@ namespace WinFormsApp1
             this.Hide();
             form3.Show();
         }
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                // Получаем выбранный пункт
+                string selectedItem = checkedListBox1.Items[e.Index].ToString();
+
+                // Извлекаем ник пользователя из пункта
+                string[] parts = selectedItem.Split('|');
+                string nick = parts[0].Trim().Substring(5);
+
+                // Присваиваем ник пользователю в textBox1
+                textBox1.Text = nick;
+            }
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             Nick = textBox1.Text;
-
-            if (Nick == null)
+            if (string.IsNullOrEmpty(Nick))
             {
-
                 MessageBox.Show("Вы не ввели свой Nick\nСверху справа поле для ввода");
             }
-
             else
             {
-                statusAccount = true;
+
+                if (_databaseService.GetNickName(Nick) != null)
+                {
+                    MessageBox.Show("Ник уже существует. Пожалуйста, выберите другой ник.");
+                    return;
+                }
+
+               
                 var user = new Record
                 {
                     NickName = Nick,
@@ -85,9 +114,8 @@ namespace WinFormsApp1
                 };
                 MessageBox.Show("Пользователь внесен");
                 _databaseService.InsertRecord(user);
-                // Получение всех записей из базы данных
-                List<Record> records = _databaseService.GetAllRecord();
 
+                List<Record> records = _databaseService.GetAllRecord();
 
                 checkedListBox1.Items.Clear();
                 string itemText = "Страница Рекордов";
@@ -97,9 +125,9 @@ namespace WinFormsApp1
                     itemText = "Ник: " + record.NickName + " | Рекорд: " + record.RecordUser;
                     checkedListBox1.Items.Add(itemText);
                 }
-                _databaseService.CloseConnection();
+              
+                textBox1.Text="";
             }
-
         }
     }
 }
