@@ -4,12 +4,14 @@ using System;
 using System.Drawing;
 using System.Reflection.Emit;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
         public int level = 0;
+        public static bool statusGame = true; 
         public string nickUser = Form1.Nick;
         public string databasePath = Form1.databasePath;
         private DatabaseServiceRecords _databaseService;
@@ -21,7 +23,7 @@ namespace WinFormsApp1
         private int countRecord = 0;
         private int ballSpeedX = 4; // Скорость шарика по горизонтали
         private int ballSpeedY = 4; // Скорость шарика по вертикали
-
+       Form4 form4 = new Form4(statusGame);
         public Form2()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace WinFormsApp1
                 Form1.sound_main.PlayLooping();
                 Form1.sound_main.Play();
             }
+            
             level = 1;
             InitializeGame();
             _databaseService = new DatabaseServiceRecords(databasePath);
@@ -156,6 +159,18 @@ namespace WinFormsApp1
                     label1.Text = "Игрок " + Form1.Nick + " || Ваш Счёт: " + countRecord;
                     if (countRecord == 6000 && level == 1)
                     {
+
+                        for (int i = 1; i <= 49; i++)
+                        {
+                            string pictureBoxName = "pictureBox" + i;
+                            PictureBox pictureBox = Controls.Find(pictureBoxName, true).FirstOrDefault() as PictureBox;
+
+                            if (pictureBox != null)
+                            {
+                                pictureBox.Image = Properties.Resources.kaneki;
+                            }
+                        }
+
                         level = 2;
                         ballSpeedX += 2;
                         ballSpeedY += 2;
@@ -220,6 +235,9 @@ namespace WinFormsApp1
 
                 countRecord = 0;
                 //////////////////////// ВСТАВИЛ ЭТО ПОКА ДЛЯ ВОЗВРАТА НА ГЛАВ МЕНЮ ПОСЛЕ ПОРАЖЕНИЯ
+                statusGame = false;
+                form4.Close();
+                
                 Form1 form1 = new Form1();
                 this.Close();
                 form1.Show();
@@ -250,7 +268,10 @@ namespace WinFormsApp1
             _selectedData.RecordUser = countRecord;
             _databaseService.UpdateRecord(_selectedData);
             MessageBox.Show("Игра окончена!");
+            statusGame = false;
             countRecord = 0;
+            form4.Close();
+
             Form1 form1 = new Form1();
             this.Close();
             form1.Show();

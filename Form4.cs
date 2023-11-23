@@ -12,9 +12,17 @@ namespace WinFormsApp1
 {
     public partial class Form4 : Form
     {
-        public Form4()
+        public Form4(bool status)
         {
             InitializeComponent();
+            if (status == false)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }

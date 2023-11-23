@@ -8,7 +8,7 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        public static SoundPlayer sound_main = new SoundPlayer(@"C:\Users\konst\source\repos\Da1erRowney\ArkanoidGroupProject\Resources\3.wav");
+        public static SoundPlayer sound_main = new SoundPlayer(@"C:\Users\konst\source\repos\Da1erRowney\ArkanoidGroupProject\Resources\4.wav");
         public static bool statusMusic = true;
         public static string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "record.db");
         public static string Nick;
@@ -61,6 +61,9 @@ namespace WinFormsApp1
             if (existingRecord != null)
             {
                 Nick = textBox1.Text;
+                Form2.statusGame = true;
+                //bool m_statusGames = Form2.statusGame;
+                //Form4 form4 = new Form4(m_statusGames);
                 Form2 form2 = new Form2();
                 this.Hide();
                 form2.Show();
