@@ -25,7 +25,11 @@ namespace WinFormsApp1
         public Form2()
         {
             InitializeComponent();
-            
+            if (Form1.statusMusic == true)
+            {
+                Form1.sound_main.PlayLooping();
+                Form1.sound_main.Play();
+            }
             level = 1;
             InitializeGame();
             _databaseService = new DatabaseServiceRecords(databasePath);
@@ -160,6 +164,36 @@ namespace WinFormsApp1
 
                         InitializeGame();
                     }
+                    if (countRecord == 12000 && level == 2)
+                    {
+                        level = 2;
+                        ballSpeedX += 1;
+                        ballSpeedY += 1;
+                        //ball.Left += ballSpeedX;
+                        //ball.Top += ballSpeedY;
+
+                        InitializeGame();
+                    }
+                    if (countRecord == 18000 && level == 2)
+                    {
+                        level = 2;
+                        InitializeGame();
+                    }
+                    if (countRecord == 24000 && level == 2)
+                    {
+                        level = 2;
+                        InitializeGame();
+                    }
+                    if (countRecord == 30000 && level == 2)
+                    {
+                        level = 2;
+                        InitializeGame();
+                    }
+                    if (countRecord == 36000 && level == 2)
+                    {
+                        level = 2;
+                        InitializeGame();
+                    }
                     // Дополнительные действия при попадании шариком в блок
                 }
             }
@@ -180,6 +214,7 @@ namespace WinFormsApp1
                 gameTimer.Stop();
                 _selectedData.RecordUser = countRecord;
                 _databaseService.UpdateRecord(_selectedData);
+                gameTimer.Enabled = false;
                 MessageBox.Show("Игра окончена!");
                 ClearFiled();
 
@@ -187,7 +222,7 @@ namespace WinFormsApp1
                 //////////////////////// ВСТАВИЛ ЭТО ПОКА ДЛЯ ВОЗВРАТА НА ГЛАВ МЕНЮ ПОСЛЕ ПОРАЖЕНИЯ
                 Form1 form1 = new Form1();
                 this.Close();
-                
+                form1.Show();
                 form1.statusAccount = true;
                 form1.textBox1.Text = nickUser;
                 ////////////////////////////
@@ -218,6 +253,7 @@ namespace WinFormsApp1
             countRecord = 0;
             Form1 form1 = new Form1();
             this.Close();
+            form1.Show();
             
             form1.statusAccount = true;
             form1.textBox1.Text = nickUser;

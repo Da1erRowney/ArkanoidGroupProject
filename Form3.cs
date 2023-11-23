@@ -16,6 +16,7 @@ namespace WinFormsApp1
         public Form3()
         {
             InitializeComponent();
+
             //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             //pictureBox1.Image = new Bitmap(pictureBox1.Image);
             //pictureBox1.Dock = DockStyle.Fill;
@@ -26,8 +27,9 @@ namespace WinFormsApp1
         {
             Form1 form1 = new Form1();
             this.Close();
-            
+
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -36,7 +38,8 @@ namespace WinFormsApp1
                 Form1.sound_main.Stop();
                 Form1.statusMusic = false;
             }
-            else {
+            else
+            {
                 Form1.sound_main.Stop();
                 Form1.statusMusic = true;
             }

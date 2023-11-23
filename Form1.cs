@@ -62,7 +62,7 @@ namespace WinFormsApp1
             {
                 Nick = textBox1.Text;
                 Form2 form2 = new Form2();
-                
+                this.Hide();
                 form2.Show();
             }
             else
@@ -79,6 +79,7 @@ namespace WinFormsApp1
         private void button2_Click(object sender, EventArgs e) //Setting
         {
             Form3 form3 = new Form3();
+            
             form3.Show();
         }
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
