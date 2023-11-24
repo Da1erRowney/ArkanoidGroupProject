@@ -21,7 +21,7 @@ namespace WinFormsApp1
             }
             else
             {
-                this.Show();
+                //this.Show();
             }
         }
     }

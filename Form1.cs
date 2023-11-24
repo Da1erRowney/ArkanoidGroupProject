@@ -8,7 +8,7 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        public static SoundPlayer sound_main = new SoundPlayer(@"C:\Users\konst\source\repos\Da1erRowney\ArkanoidGroupProject\Resources\4.wav");
+        public static SoundPlayer sound_main = new SoundPlayer(@"C:\Users\fthua\source\repos\Da1erRowney\ArkanoidGroupProject\Resources\4.wav");
         public static bool statusMusic = true;
         public static string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "record.db");
         public static string Nick;
