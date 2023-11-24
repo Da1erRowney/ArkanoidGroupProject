@@ -28,50 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
-            label1 = new Label();
             button2 = new Button();
+            button3 = new Button();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(332, 132);
+            resources.ApplyResources(button1, "button1");
+            button1.BackColor = Color.Black;
+            button1.ForeColor = Color.Khaki;
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(333, 187);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
             // 
             // button2
             // 
-            button2.Location = new Point(440, 132);
+            resources.ApplyResources(button2, "button2");
+            button2.BackColor = Color.Black;
+            button2.ForeColor = Color.Khaki;
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            resources.ApplyResources(button3, "button3");
+            button3.BackColor = Color.Black;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.ForeColor = Color.Khaki;
+            button3.Name = "button3";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.BackgroundImage = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
+            pictureBox1.Image = Properties.Resources._93f04b4b1103cc4e6410bb4f831acb6c;
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.BackColor = Color.Black;
+            label1.ForeColor = Color.Khaki;
+            label1.Name = "label1";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button2);
+            resources.ApplyResources(this, "$this");
             Controls.Add(label1);
+            Controls.Add(button3);
+            Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
-            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -79,7 +99,9 @@
         #endregion
 
         private Button button1;
-        private Label label1;
         private Button button2;
+        private Button button3;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }
